@@ -11,22 +11,22 @@ import Start from "./screens/Start";
 const Tab = createBottomTabNavigator()
 const Stack = createStackNavigator();
 
-//첫화면 하는즁
-function Starttomain(){
-  return (
-    <Stack.Navigator>
-    <Stack.Screen name="Main" component={Main}/>
-    <Stack.Screen name="Start" component={Start}/>
-  </Stack.Navigator>
-  );
-}
+//첫화면  
+// function Starttomain(){
+//   return (
+//     <Stack.Navigator>
+//     <Stack.Screen name="Main" component={Main}/>
+//     <Stack.Screen name="Start" component={Start}/>
+//   </Stack.Navigator>
+//   );
+// }
 
 export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator>
-        <Tab.Screen name="Main" component={Starttomain}/>
-        <Tab.Screen name="Side" component={Side}/>
+        <Tab.Screen name="개인 정보" component={Main}/>
+        <Tab.Screen name="추가 정보" component={Side}/>
       </Tab.Navigator>
     </NavigationContainer>
   );
