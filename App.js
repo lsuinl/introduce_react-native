@@ -1,20 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import "react-native-gesture-handler";
+import React from "react";
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from "@react-navigation/stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-export default function App() {
+import Main from "./screens/Main";
+import Side from "./screens/Side";
+import Start from "./screens/Start";
+
+const Tab = createBottomTabNavigator()
+const Stack = createStackNavigator();
+
+//첫화면 하는즁
+function Starttomain(){
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Stack.Navigator>
+    <Stack.Screen name="Main" component={Main}/>
+    <Stack.Screen name="Start" component={Start}/>
+  </Stack.Navigator>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Main" component={Starttomain}/>
+        <Tab.Screen name="Side" component={Side}/>
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
+}
