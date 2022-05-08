@@ -1,21 +1,32 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet,Image, ImageBackground } from "react-native";
+import * as Font from 'expo-font';
+
+Font.loadAsync({
+  antn: require('../assets/fonts/BMJUA_ttf.ttf'),
+});
 
 function Side() {
   return (
     <View style={styles.container} >
       <View flexDirection='row'>
-        <View style={styles.picture}></View>
-        <View style={styles.picture}></View>
+        <ImageBackground source={require("../image/game.jpeg")} style={styles.picture}>
+          <Text style={styles.textbox}>{"\n"}취미</Text>
+        </ImageBackground>
+        <ImageBackground source={require("../image/movie.jpeg")} style={styles.picture}>
+          <Text style={styles.textbox}>{"\n"}영화</Text>
+        </ImageBackground>
       </View>
       <View flexDirection='row'>
-        <View style={styles.picture}></View>
-        <View style={styles.picture}></View>
+        <ImageBackground source={require("../image/food.jpeg")} style={styles.picture}>
+          <Text style={styles.textbox}>{"\n"}음식</Text>
+        </ImageBackground>
+        <ImageBackground source={require("../image/pet.png")} style={styles.picture}>
+          <Text style={styles.textbox}>{"\n"}동물</Text>
+        </ImageBackground>
       </View>
-      <View flexDirection='row'>
-        <View style={styles.picture}></View>
-        <View style={styles.picture}></View>
-      </View>
+        <Image source={require("../image/talk.png")}style={styles.picture2}></Image>
+        <Text style={styles.textbox}>{"\n"}{"\n"}{"\n"}하고싶은 말</Text>
     </View>
   );
 }
@@ -27,30 +38,30 @@ const styles = StyleSheet.create({
     backgroundColor:'white',
   },
   picture:{
-    backgroundColor:'black',
     flexDirection: 'row',
     alignItessms:'flex-start',
-    borderRadius:20,
+    borderRadius:50,
     margin:3,
     top:120,
     width:185,
     height:150,
   },
-  textbox:{
-    flex: 2,
-    backgroundColor:'#B2CCFF',
-    alignItems: 'center',
-    borderRadius:25,
-    marginTop:5,
+  picture2:{
+    flexDirection: 'row',
+    alignItessms:'flex-start',
+    borderRadius:50,
+    margin:3,
+    top:120,
+    width:240,
+    height:150,
   },
-  appTitle:{ //앱 타이틀(제목)에 대한 스타일
-    color:'#fff', //내용물색
-    fontSize:30, //글자사이즈
-    marginTop:50, //위치
-    marginBottom:30, //위치2
-    fontWeight:'500', //글씨 두께
-    textAlign:'center',//뭐여
-    backgroundColor:'#6EE3F7', //배경색
+  textbox:{
+    fontFamily: 'antn',
+    flex: 2,
+    fontSize:50,
+    lineHeight: 45,
+    fontWeight: '800',
+    textAlign:'center',
   },
 });
 
