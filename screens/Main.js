@@ -1,14 +1,27 @@
 import React from "react";
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { View, Text, StyleSheet, Image,ImageBackground } from "react-native";
+import * as Font from 'expo-font';
+
+Font.loadAsync({
+  anton: require('../assets/fonts/NanumPenScript-Regular.ttf'),
+});
 
 function Main() {
   return (
     <View style={styles.container}>
-      <View style={styles.backpicture}>
-        <View style={styles.picture}></View>
-      </View>
+      <ImageBackground source={require("../image/back.png")} style={styles.backpicture} >
+        <Image source={require("../image/me.jpeg")} style={styles.picture} />
+      </ImageBackground>
       <View style={styles.information}> 
-          <Text></Text>
+        <Text style={styles.textshape}> 
+        {"\n"}{"\n"}
+          이름: 김수인{"\n"}
+          생년월일: 2002년 4월 3일{"\n"}
+          학교: 명지대학교{"\n"}
+          학과: 정보통신공학과 21학번{"\n"}
+          거주 지역: 경기도 파주시{"\n"}
+          하고싶은 말: 메롱
+        </Text>
       </View>
     </View>
   );
@@ -44,6 +57,15 @@ const styles = StyleSheet.create({
     marginTop:5,
     width:375,
     zIndex:1,
+  },
+  textshape:{
+    fontFamily: 'anton',
+    lineHeight: 45,
+    zIndex:2,
+    fontWeight:'700',
+    fontSize:30,
+    color:'#353535',
+
   },
 });
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, Button } from "react-native";
 
-function Start({navigation}) {
+function start({navigation}) {
   return (
     <View>
       <Text>start!</Text>
@@ -13,4 +13,4 @@ function Start({navigation}) {
   );
 }
 
-export default Start;
+export default start;
