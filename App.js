@@ -8,7 +8,7 @@ import Main from "./screens/Main";
 import Side from "./screens/Side";
 import Start from "./screens/Start";
 
-const Tab = createBottomTabNavigator()
+const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
 //첫화면  

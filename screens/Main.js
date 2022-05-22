@@ -1,10 +1,15 @@
 import React from "react";
 import { View, Text, StyleSheet, Image,ImageBackground } from "react-native";
 import * as Font from 'expo-font';
+import { TouchableOpacity } from "react-native-gesture-handler";
+
+import Modall from "./Modall";
+import { Button } from "react-native-web";
 
 Font.loadAsync({
   anton: require('../assets/fonts/NanumPenScript-Regular.ttf'),
 });
+
 
 function Main() {
   return (
@@ -23,7 +28,9 @@ function Main() {
           하고싶은 말: 메롱
         </Text>
       </View>
+      <Modall/>
     </View>
+    
   );
 };
 

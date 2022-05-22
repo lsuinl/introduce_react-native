@@ -6,6 +6,7 @@ Font.loadAsync({
   antn: require('../assets/fonts/BMJUA_ttf.ttf'),
 });
 
+
 function Side() {
   return (
     <View style={styles.container} >
