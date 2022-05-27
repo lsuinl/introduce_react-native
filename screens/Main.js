@@ -1,8 +1,10 @@
 import React from "react";
 import { View, Text, StyleSheet, Image,ImageBackground } from "react-native";
 import * as Font from 'expo-font';
-import Modall from "./Modall";
 import { LogBox } from 'react-native';
+
+import Modall from "./Modall";
+
 //조용히 하라는 뜻
 LogBox.ignoreLogs([
   "ViewPropTypes will be removed from React Native. Migrate to ViewPropTypes exported from 'deprecated-react-native-prop-types'.",

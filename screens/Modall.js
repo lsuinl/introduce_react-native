@@ -2,6 +2,7 @@ import React from 'react';
 import {View, StyleSheet,Image, Text, TouchableOpacity} from 'react-native';
 import Modal from 'react-native-simple-modal';
 import { LogBox } from 'react-native';
+
 //조용히 하라는 뜻
 LogBox.ignoreLogs([
 "Animated: `useNativeDriver` was not specified. This is a required option and must be explicitly set to `true` or `false`"
