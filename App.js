@@ -24,6 +24,7 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
+      {/* <Start/> */}
       <Tab.Navigator>
         <Tab.Screen name="개인 정보" component={Main}/>
         <Tab.Screen name="추가 정보" component={Side}/>
