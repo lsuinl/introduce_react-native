@@ -1,37 +1,57 @@
 import React from "react";
 import { View, Text, StyleSheet, Image,ImageBackground } from "react-native";
 import * as Font from 'expo-font';
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { LogBox } from 'react-native';
 
 import Modall from "./Modall";
-import { Button } from "react-native-web";
 
-Font.loadAsync({
-  anton: require('../assets/fonts/NanumPenScript-Regular.ttf'),
-});
+//조용히 하라는 뜻
+LogBox.ignoreLogs([
+  "ViewPropTypes will be removed from React Native. Migrate to ViewPropTypes exported from 'deprecated-react-native-prop-types'.",
+  "Warning: componentWillMount has been renamed, and is not recommended for use. See https://reactjs.org/link/unsafe-component-lifecycles for details.",
+  "Warning: componentWillReceiveProps has been renamed, and is not recommended for use. See https://reactjs.org/link/unsafe-component-lifecycles for details.",
+]);
 
-
-function Main() {
-  return (
-    <View style={styles.container}>
-      <ImageBackground source={require("../image/back.png")} style={styles.backpicture} >
-        <Image source={require("../image/me.jpeg")} style={styles.picture} />
-      </ImageBackground>
-      <View style={styles.information}> 
-        <Text style={styles.textshape}> 
-        {"\n"}{"\n"}
-          이름: 김수인{"\n"}
-          생년월일: 2002년 4월 3일{"\n"}
-          학교: 명지대학교{"\n"}
-          학과: 정보통신공학과 21학번{"\n"}
-          거주 지역: 경기도 파주시{"\n"}
-          하고싶은 말: 메롱
-        </Text>
+//이번주 목표:  스타트화면->메인화면의 전환 만들기, 화면 좀 더 예쁘게 수정하기
+export default class Main extends React.Component {
+  constructor(props){
+    super(props);
+    this.state={isReady: false};
+  }
+  async componentDidMount() {
+    await Font.loadAsync({'anton': require('../assets/fonts/NanumPenScript-Regular.ttf'),});
+    this.setState({isReady: true});
+  }
+  render(){
+    if(this.state.isReady){ //로딩되어야 작동
+      return (
+      <View style={styles.container}>
+        <ImageBackground source={require("../image/back.png")} style={styles.backpicture} >
+          <Image source={require("../image/me.jpeg")} style={styles.picture} />
+        </ImageBackground>
+        <View style={styles.information}> 
+          <Text style={styles.textshape}> 
+          {"\n"}{"\n"}
+            이름: 김수인{"\n"}
+            생년월일: 2002년 4월 3일{"\n"}
+            학교: 명지대학교{"\n"}
+            학과: 정보통신공학과 21학번{"\n"}
+            거주 지역: 경기도 파주시{"\n"}
+            하고싶은 말: 메롱
+          </Text>
+        </View>
+        <Modall/>
       </View>
-      <Modall/>
-    </View>
-    
-  );
+      );
+    }
+    else{
+      return (
+      <View>
+        <Text>로딩중..</Text>
+      </View>
+      );
+    }
+  }
 };
 
 const styles = StyleSheet.create({
@@ -67,13 +87,12 @@ const styles = StyleSheet.create({
   },
   textshape:{
     fontFamily: 'anton',
-    lineHeight: 45,
+    lineHeight: 50,
     zIndex:2,
-    fontWeight:'700',
+    fontWeight:'800',
     fontSize:30,
     color:'#353535',
 
   },
-});
 
-export default Main;
+});

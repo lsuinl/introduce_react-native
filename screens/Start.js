@@ -4,7 +4,7 @@ import { View, Text, Button } from "react-native";
 function start({navigation}) {
   return (
     <View>
-      <Text>start!</Text>
+      <Text>안녕하세유!</Text>
       <Button 
         title="go to main" 
         onPress={() => navigation.navigate('Main')}
